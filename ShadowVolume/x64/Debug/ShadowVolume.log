@@ -1,0 +1,73 @@
+﻿  main.cpp
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\shader.h(69): warning C4101: “infoLog”: 未引用的局部变量
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\shader.h(68): warning C4101: “success”: 未引用的局部变量
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\mesh.h(88): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\mesh.h(100): warning C4267: “参数”: 从“size_t”转换到“GLsizei”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(248): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(363): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(393): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+main.obj : error LNK2019: 无法解析的外部符号 glewInit，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwInit，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwTerminate，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwWindowHint，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwCreateWindow，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwWindowShouldClose，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwSetWindowShouldClose，该符号在函数 "void __cdecl key_callback(struct GLFWwindow *,int,int,int,int)" (?key_callback@@YAXPEAUGLFWwindow@@HHHH@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwPollEvents，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwGetMouseButton，该符号在函数 "void __cdecl mouse_callback(struct GLFWwindow *,double,double)" (?mouse_callback@@YAXPEAUGLFWwindow@@NN@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwGetTime，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwMakeContextCurrent，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwSwapBuffers，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 "public: __cdecl Assimp::Importer::Importer(void)" (??0Importer@Assimp@@QEAA@XZ)，该符号在函数 "private: void __cdecl Model::loadModel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?loadModel@Model@@AEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 "public: __cdecl Assimp::Importer::~Importer(void)" (??1Importer@Assimp@@QEAA@XZ)，该符号在函数 "private: void __cdecl Model::loadModel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?loadModel@Model@@AEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 "public: struct aiScene const * __cdecl Assimp::Importer::ReadFile(char const *,unsigned int)" (?ReadFile@Importer@Assimp@@QEAAPEBUaiScene@@PEBDI@Z)，该符号在函数 "public: struct aiScene const * __cdecl Assimp::Importer::ReadFile(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,unsigned int)" (?ReadFile@Importer@Assimp@@QEAAPEBUaiScene@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@I@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 "public: char const * __cdecl Assimp::Importer::GetErrorString(void)const " (?GetErrorString@Importer@Assimp@@QEBAPEBDXZ)，该符号在函数 "private: void __cdecl Model::loadModel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?loadModel@Model@@AEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 aiGetMaterialTextureCount，该符号在函数 "public: unsigned int __cdecl aiMaterial::GetTextureCount(enum aiTextureType)const " (?GetTextureCount@aiMaterial@@QEBAIW4aiTextureType@@@Z) 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 aiGetMaterialTexture，该符号在函数 "public: enum aiReturn __cdecl aiMaterial::GetTexture(enum aiTextureType,unsigned int,struct aiString *,enum aiTextureMapping *,unsigned int *,float *,enum aiTextureOp *,enum aiTextureMapMode *)const " (?GetTexture@aiMaterial@@QEBA?AW4aiReturn@@W4aiTextureType@@IPEAUaiString@@PEAW4aiTextureMapping@@PEAIPEAMPEAW4aiTextureOp@@PEAW4aiTextureMapMode@@@Z) 中被引用
+main.obj : error LNK2001: 无法解析的外部符号 __glewActiveTexture
+main.obj : error LNK2001: 无法解析的外部符号 __glewBindBuffer
+main.obj : error LNK2001: 无法解析的外部符号 __glewBufferData
+main.obj : error LNK2001: 无法解析的外部符号 __glewGenBuffers
+main.obj : error LNK2001: 无法解析的外部符号 __glewAttachShader
+main.obj : error LNK2001: 无法解析的外部符号 __glewCompileShader
+main.obj : error LNK2001: 无法解析的外部符号 __glewCreateProgram
+main.obj : error LNK2001: 无法解析的外部符号 __glewCreateShader
+main.obj : error LNK2001: 无法解析的外部符号 __glewDeleteShader
+main.obj : error LNK2001: 无法解析的外部符号 __glewDrawBuffers
+main.obj : error LNK2001: 无法解析的外部符号 __glewEnableVertexAttribArray
+main.obj : error LNK2001: 无法解析的外部符号 __glewGetProgramInfoLog
+main.obj : error LNK2001: 无法解析的外部符号 __glewGetProgramiv
+main.obj : error LNK2001: 无法解析的外部符号 __glewGetShaderInfoLog
+main.obj : error LNK2001: 无法解析的外部符号 __glewGetShaderiv
+main.obj : error LNK2001: 无法解析的外部符号 __glewGetUniformLocation
+main.obj : error LNK2001: 无法解析的外部符号 __glewLinkProgram
+main.obj : error LNK2001: 无法解析的外部符号 __glewShaderSource
+main.obj : error LNK2001: 无法解析的外部符号 __glewStencilOpSeparate
+main.obj : error LNK2001: 无法解析的外部符号 __glewUniform1f
+main.obj : error LNK2001: 无法解析的外部符号 __glewUniform1i
+main.obj : error LNK2001: 无法解析的外部符号 __glewUniform3f
+main.obj : error LNK2001: 无法解析的外部符号 __glewUniform4fv
+main.obj : error LNK2001: 无法解析的外部符号 __glewUniformMatrix3fv
+main.obj : error LNK2001: 无法解析的外部符号 __glewUniformMatrix4fv
+main.obj : error LNK2001: 无法解析的外部符号 __glewUseProgram
+main.obj : error LNK2001: 无法解析的外部符号 __glewVertexAttribPointer
+main.obj : error LNK2001: 无法解析的外部符号 __glewBindFramebuffer
+main.obj : error LNK2001: 无法解析的外部符号 __glewBindRenderbuffer
+main.obj : error LNK2001: 无法解析的外部符号 __glewBlitFramebuffer
+main.obj : error LNK2001: 无法解析的外部符号 __glewCheckFramebufferStatus
+main.obj : error LNK2001: 无法解析的外部符号 __glewFramebufferRenderbuffer
+main.obj : error LNK2001: 无法解析的外部符号 __glewFramebufferTexture2D
+main.obj : error LNK2001: 无法解析的外部符号 __glewGenFramebuffers
+main.obj : error LNK2001: 无法解析的外部符号 __glewGenRenderbuffers
+main.obj : error LNK2001: 无法解析的外部符号 __glewGenerateMipmap
+main.obj : error LNK2001: 无法解析的外部符号 __glewRenderbufferStorage
+main.obj : error LNK2001: 无法解析的外部符号 __glewTexStorage2D
+main.obj : error LNK2001: 无法解析的外部符号 __glewBindVertexArray
+main.obj : error LNK2001: 无法解析的外部符号 __glewGenVertexArrays
+main.obj : error LNK2001: 无法解析的外部符号 glewExperimental
+MSVCRTD.lib(exe_winmain.obj) : error LNK2019: 无法解析的外部符号 WinMain，该符号在函数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) 中被引用
+D:\Tools\OpenGL\glew-2.1.0\lib\Release\Win32\glew32s.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
+D:\Tools\OpenGL\glfw-3.3.bin.WIN32\lib-vc2015\glfw3.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
+D:\Tools\OpenGL\soil2_0\soil2-debug.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
+assimp-vc140-mt.lib : warning LNK4272: 库计算机类型“x86”与目标计算机类型“x64”冲突
+C:\Users\周奕飞\source\repos\ShadowVolume-master\x64\Debug\ShadowVolume.exe : fatal error LNK1120: 60 个无法解析的外部命令
