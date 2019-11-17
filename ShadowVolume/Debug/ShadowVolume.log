@@ -1,1 +1,14 @@
-﻿  ShadowVolume.vcxproj -> C:\Users\周奕飞\source\repos\ShadowVolume-master\Debug\ShadowVolume.exe
+﻿  main.cpp
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\shader.h(69): warning C4101: “infoLog”: 未引用的局部变量
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\shader.h(68): warning C4101: “success”: 未引用的局部变量
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(48): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(49): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(424): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(629): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(630): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(634): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(635): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(637): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(638): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\周奕飞\source\repos\shadowvolume-master\shadowvolume\main.cpp(647): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+  ShadowVolume.vcxproj -> C:\Users\周奕飞\source\repos\ShadowVolume-master\Debug\ShadowVolume.exe

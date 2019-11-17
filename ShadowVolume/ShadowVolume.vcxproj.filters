@@ -69,5 +69,11 @@
     <None Include="model_loading.vs">
       <Filter>File di risorse</Filter>
     </None>
+    <None Include="cubemaps.fs">
+      <Filter>File di risorse</Filter>
+    </None>
+    <None Include="cubemaps.vs">
+      <Filter>File di risorse</Filter>
+    </None>
   </ItemGroup>
 </Project>

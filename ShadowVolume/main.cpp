@@ -25,7 +25,7 @@
 
 GLuint screenWidth = 1200, screenHeight = 800;
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+//void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 unsigned int loadTexture(const char *path);
@@ -106,7 +106,7 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);	
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 	glfwWindowHint(GLFW_SAMPLES, 4);
 
 	//glfwSwapInterval(1);
@@ -135,7 +135,8 @@ int main()
 	Shader skyboxShader("./shader/skybox.vert", "./shader/skybox.frag");
 	Shader ourShader("model_loading.vs", "model_loading.fs");
 	//测试
-	Model ourModel("C:/Users/周奕飞/source/repos/GHomeworkThreePre/GHomeworkThreePre/images/ball.obj");
+	//Model ourModel("C:/Users/周奕飞/source/repos/GHomeworkThreePre/GHomeworkThreePre/images/ball.obj");
+	Shader cubeshader("cubemaps.vs", "cubemaps.fs");
 
 	float skyboxVertices[] = {
 		// positions          
@@ -181,6 +182,61 @@ int main()
 		-1.0f, -1.0f,  1.0f,
 		1.0f, -1.0f,  1.0f
 	};
+	float cubeVertices[] = {
+		// positions          // normals
+		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+
+		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+
+		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+
+		0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+		0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+		0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+
+		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+		0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+		0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+
+		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+		0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+		0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+	};
+	// cube VAO
+	unsigned int cubeVAO, cubeVBO;
+	glGenVertexArrays(1, &cubeVAO);
+	glGenBuffers(1, &cubeVBO);
+	glBindVertexArray(cubeVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), &cubeVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 
 	// skybox VAO
 	unsigned int skyboxVAO, skyboxVBO;
@@ -205,24 +261,35 @@ int main()
 	};
 	unsigned int cubemapTexture = loadCubemap(faces);
 
+	//shader configuration
+	ourShader.use();
+	ourShader.setInt("skybox", 0);
+	cubeshader.use();
+	cubeshader.setInt("skybox", 0);
 	// MODELLO
-	//Model millModel("./Deer/Deer.obj");
-	Model millModel("./Deer/Ball.obj");
+	Model millModel("./Deer/Deer.obj");
+	//Model millModel("./Deer/Ball.obj");
+	//Model millModel("./Deer/nanosuit.obj");
+
+	skyboxShader.use();
+	skyboxShader.setInt("skybox", 0);
+
+	
 
 
-	// DEPTH BUFFER
+	// DEPTH BUFFER 深度缓冲区
 	GLuint depthBuf;
 	glGenRenderbuffers(1, &depthBuf);
 	glBindRenderbuffer(GL_RENDERBUFFER, depthBuf);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, screenWidth, screenHeight);
 
-	// AMBIENT BUFFER
+	// AMBIENT BUFFER 环境缓冲区
 	GLuint ambBuf;
 	glGenRenderbuffers(1, &ambBuf);
 	glBindRenderbuffer(GL_RENDERBUFFER, ambBuf);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA, screenWidth, screenHeight);
 
-	// DIFFUSE COMPONENT
+	// DIFFUSE COMPONENT 广泛组件
 	GLuint diffSpecTex;
 	glGenTextures(1, &diffSpecTex);
 	glBindTexture(GL_TEXTURE_2D, diffSpecTex);
@@ -277,14 +344,19 @@ int main()
 	glm::mat4 model;
 	model = glm::scale(model, glm::vec3(0.7f, 0.7f, 0.7f));
 	model = glm::rotate(model, 1.1f, glm::vec3(0.0f, 1.0f, 0.0f));
-	model = glm::translate(model, glm::vec3(-10.0f, 4.3f, 20.0f));
+	//model = glm::translate(model, glm::vec3(-10.0f, 4.3f, 30.0f));//使球体导入的模型居中
+	model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));//使其他模型导入的模型居中
 
 	//PIANO
 	GLfloat plainVertices[] = {
-		15.0f, 0.0f, 15.0f,
-		-15.0f, 0.0f, 15.0f,
-		15.0f, 0.0f, -15.0f,
-		-15.0f, 0.0f, -15.0f
+		//15.0f, 0.0f, 15.0f,
+		//-15.0f, 0.0f, 15.0f,
+		//15.0f, 0.0f, -15.0f,
+		//-15.0f, 0.0f, -15.0f,
+		35.0f, 0.0f, 35.0f,
+		-35.0f, 0.0f, 35.0f,
+		35.0f, 0.0f, -35.0f,
+		-35.0f, 0.0f, -35.0f
 	};
 
 	GLuint VBO[1], VAO[1];
@@ -297,11 +369,14 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 	glBindVertexArray(0);
+
+
+
 	//
-	// Initialize AntTweakBar
+	// Initialize AntTweakBar 初始化
 	TwInit(TW_OPENGL_CORE, NULL);
 	TwWindowSize(screenWidth, screenHeight);
-	// Create a tweak bar
+	// Create a tweak bar 创建
 	TwBar *bar;
 	float speed = 1.0f;
 	float height = 1.75f;
@@ -329,8 +404,8 @@ int main()
 	TwDefine(" ShadowVolumeOption size='280 230' ");
 	TwDefine(" GLOBAL fontsize=3 ");
 	TwDefine(" ShadowVolumeOption refresh=0.1 ");
-	
-	
+
+
 	while (!glfwWindowShouldClose(window))
 	{
 		//按键监听器
@@ -341,34 +416,8 @@ int main()
 		glm::mat4 view = camera.GetViewMatrix();
 
 		//加载模型
-		ourModel.Draw(ourShader);
-		ourShader.use();
-		ourShader.setMat4("ModelViewMatrix", view);
-		ourShader.setMat4("ProjMatrix", projection);
-		ourShader.setMat3("NormalMatrix", glm::mat3(glm::vec3(view[0]), glm::vec3(view[1]), glm::vec3(view[2])));
 		//ourModel.Draw(ourShader);
-
-		////使球体位于屏幕下方
-		//glm::mat4 modelBall = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-		//glm::mat4 viewBall = glm::mat4(1.0f);
-		//glm::mat4 projectionBall = glm::mat4(1.0f);
-		//modelBall = glm::rotate(modelBall, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		//viewBall = glm::translate(viewBall, glm::vec3(0.0f, 1.0f, 1.0f));
-		//projectionBall = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-		//// retrieve the matrix uniform locations
-		//unsigned int modelLocBall = glGetUniformLocation(ourShader.ID, "modelBall");
-		//unsigned int viewLocBall = glGetUniformLocation(ourShader.ID, "viewBall");
-		//// pass them to the shaders (3 different ways)
-		//glUniformMatrix4fv(modelLocBall, 1, GL_FALSE, glm::value_ptr(modelBall));
-		//glUniformMatrix4fv(viewLocBall, 1, GL_FALSE, &viewBall[0][0]);
-		//// note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-		//ourShader.setMat4("projection", projectionBall);
-
-
-
-		//glm::mat4 projection = glm::perspective(1.0f, (float)screenWidth / (float)screenHeight, 0.2f, 50.0f);
-		////glm::mat4 view = camera.getRotViewMatrix();
-		//glm::mat4 view = camera.GetViewMatrix();
+		//ourShader.use();
 
 		glm::mat4 mv = view * model;
 
@@ -380,14 +429,17 @@ int main()
 		fps = 1.0f / deltaTime;
 
 		glfwPollEvents(); //获取输入
-		
-		// CLEAR COLOR, DEPTH E STENCIL
+
+		// CLEAR COLOR, DEPTH E STENCIL 清空颜色、深度缓存
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClearStencil(0);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// PRIMO PASSO
-		// RENDERING DELLA SCENA NEL FBO
+		
+
+
+		// PRIMO PASSO 第一步
+		// RENDERING DELLA SCENA NEL FBO 在FBO中渲染光、环境值
 		glDepthMask(GL_TRUE);
 		glDisable(GL_STENCIL_TEST);
 		glEnable(GL_DEPTH_TEST);
@@ -404,15 +456,35 @@ int main()
 
 		glBindFramebuffer(GL_FRAMEBUFFER, colorDepthFBO);
 		glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+		
 
-		millModel.Draw(renderShader);
+		// draw scene as normal
+		cubeshader.use();
+		glm::mat4 cubemodel = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));//使导入的模型居中;
+		glm::mat4 cubeview = view;
+		cubeshader.setMat4("model", cubemodel);
+		cubeshader.setMat4("view", cubeview);
+		cubeshader.setMat4("projection", projection);
+		cubeshader.setVec3("cameraPos", camera.Position);
+		//millModel.Draw(cubeshader);
+		// cubes
+		//glBindVertexArray(cubeVAO);
+		//glActiveTexture(GL_TEXTURE0);
+		//glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+		//glDrawArrays(GL_TRIANGLES, 0, 36);
+		//glBindVertexArray(0);
+
+		//ourModel.Draw(ourShader);
+		//millModel.Draw(renderShader);
+		millModel.Draw(cubeshader);
 
 
 		planeShader.use();
-		planeShader.setMat4("ModelViewMatrix",view);
+		planeShader.setMat4("ModelViewMatrix", view);
 		planeShader.setMat4("ProjMatrix", projection);
 		planeShader.setMat3("NormalMatrix", glm::mat3(glm::vec3(view[0]), glm::vec3(view[1]), glm::vec3(view[2])));
 		planeShader.setVec3("u_color", 0.6f, 0.6f, 0.6f);
+		//planeShader.setVec3("u_color", 1.0f, 1.0f, 1.0f);
 		//planeShader.setVec3("LightPosition", view*lightPosition);
 		planeShader.setVec3("LightPosition", glm::vec3(view*lightPosition));
 		//planeShader.setVec4("LightPosition", view*lightPosition);
@@ -422,13 +494,16 @@ int main()
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 		glBindVertexArray(0);
 
-		// SECONDO PASSO
+		// SECONDO PASSO 第二步
 		// CREO LA SILHOUETTE DEL MODELLO DAL PUNTO DI VISTA DELLA LUCE E ALLUNGO I LATI DELLA SILHOUETTE
+		//光的视觉点和根据光的反射板来创建模型的反射板
 		// COPIO I BUFFER (COLOR E DEPTH) DEL FBO NEL DEFAULT FBO
+		//在默认FBO中复制FBO的I缓冲区（颜色和深度）
 		glBindFramebuffer(GL_READ_FRAMEBUFFER, colorDepthFBO);
 		glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
 		glBlitFramebuffer(0, 0, screenWidth, screenHeight, 0, 0, screenWidth, screenHeight, GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT, GL_NEAREST);
-
+		//包围盒本身是一个模型，但并不存在于原本的场景中，
+		//所以在第二次渲染过程中要通过下述代码来避免将其渲染到最终的场景中
 		if (!showEdge) {
 			glColorMask(GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE);
 		}
@@ -441,11 +516,12 @@ int main()
 
 		glClear(GL_STENCIL_BUFFER_BIT);
 		glEnable(GL_STENCIL_TEST);
+		//第二遍渲染前，启用模板测试，并按如下方式设置模板测试的函数和操作
 		glStencilFunc(GL_ALWAYS, 0, 0xff);
 		glStencilOpSeparate(GL_FRONT, GL_KEEP, GL_DECR_WRAP, GL_KEEP);
 		glStencilOpSeparate(GL_BACK, GL_KEEP, GL_INCR_WRAP, GL_KEEP);
 
-		volumeShader.use();   
+		volumeShader.use();
 
 		volumeShader.setMat4("ModelViewMatrix", mv);
 		volumeShader.setMat4("ProjMatrix", projection);
@@ -457,11 +533,14 @@ int main()
 
 		glDisable(GL_DEPTH_CLAMP);
 		glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
-		// TERZO PASSO
+
+		// TERZO PASSO 第三步
 		// DISEGNO LA COMPONENTE DIFFUSA SECONDO LO STENCIL BUFFER
+		//通过模板缓冲区显示不同的组件
 		glDisable(GL_DEPTH_TEST);
 
 		glStencilFunc(GL_EQUAL, 0, 0xffff);
+		// Draw only if the corresponding stencil value is zero.
 
 		compShader.use();
 
@@ -469,12 +548,12 @@ int main()
 		glBindTexture(GL_TEXTURE_2D, diffSpecTex);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		glBindVertexArray(0);
-		
+
 		glDisable(GL_STENCIL_TEST);
 		glEnable(GL_DEPTH_TEST);
 
 		// SKYBOX
-		glDepthFunc(GL_LEQUAL);  
+		glDepthFunc(GL_LEQUAL);
 		skyboxShader.use();
 		//view = glm::mat4(glm::mat3(camera.getRotViewMatrix()));
 		view = glm::mat4(glm::mat3(camera.GetViewMatrix()));
@@ -491,7 +570,7 @@ int main()
 		TwDraw();
 
 		glfwSwapBuffers(window);
-		
+
 
 		angle += deltaTime * speed; //speed 设置成0.1
 
@@ -500,9 +579,14 @@ int main()
 		}
 
 		lightPosition = glm::vec4(3.0f * glm::vec3(cosf(angle) * distance, height, sinf(angle) * distance), 1.0f);
-		
-}
 
+	}
+	// optional: de-allocate all resources once they've outlived their purpose:
+	// ------------------------------------------------------------------------
+	glDeleteVertexArrays(1, &cubeVAO);
+	glDeleteVertexArrays(1, &skyboxVAO);
+	glDeleteBuffers(1, &cubeVBO);
+	glDeleteBuffers(1, &skyboxVAO);
 	TwTerminate();
 	glfwTerminate();
 	return 0;
