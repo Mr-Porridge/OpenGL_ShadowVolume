@@ -30,3 +30,5 @@ Execute the blending of the ambient and the specular+diffuse calculated at the f
 ![ShadowVolume](http://47.110.134.247/OpenGL/ball1.png)
 ### Deer
 ![ShadowVolume](http://47.110.134.247/OpenGL/deer2.png)
+
+e-mail: 13615133689@163.com
