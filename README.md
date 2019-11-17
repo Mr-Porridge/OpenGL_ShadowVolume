@@ -1,10 +1,11 @@
 # ShadowVolume
 Shadow Volume technique implemented in C++ with OpenGL.
 
-### THANKS TO ITALIAN FRIEND.
-### I JUST polished IT WITH MIRROED-LIKED SURFACE
-### AND MORE MODELS ARE ADDED IN THE DEER DIRECTORY
-
+### Thanks to an Italian friend.
+### I just polished it with mirror-liked surface.
+### And more Models are added in the DEER directory.
+### If you want all libraries used in this project
+### Please contact me with the e-mail address at the end of .README
 ![ShadowVolume](https://image.ibb.co/maYiqH/Screenshot_2018_03_19_12_08_19.png)
 
 Computer Graphics and 3D.
@@ -27,7 +28,5 @@ Execute the blending of the ambient and the specular+diffuse calculated at the f
 ## Mirror-liked surface added
 ### Ball
 ![ShadowVolume](http://47.110.134.247/OpenGL/ball1.png)
-![ShadowVolume](http://47.110.134.247/OpenGL/ball2.png)
 ### Deer
-![ShadowVolume](http://47.110.134.247/OpenGL/deer1.png)
 ![ShadowVolume](http://47.110.134.247/OpenGL/deer2.png)
